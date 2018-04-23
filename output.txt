@@ -1,1 +1,2 @@
-Hello, Node.js
+使用Stream写入文本数据...
+Write END.
