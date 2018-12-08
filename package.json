@@ -1,0 +1,26 @@
+{
+  "name": "nodejsedu",
+  "version": "1.0.0",
+  "description": "Hello Koa 2 example with async",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "koa",
+    "async"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lihaixing/nodejsEDU.git"
+  },
+  "author": "lihaixing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lihaixing/nodejsEDU/issues"
+  },
+  "homepage": "https://github.com/lihaixing/nodejsEDU#readme",
+  "dependencies": {
+    "koa": "2.0.0"
+  }
+}

@@ -8,14 +8,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch main",
-            "program": "${workspaceRoot}/main.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch crypto",
-            "program": "${workspaceRoot}/crypto.js"
+            "name": "Launch app",
+            "program": "${workspaceRoot}/app.js"
         }
     ]
 }
