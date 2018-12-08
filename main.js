@@ -35,7 +35,7 @@ fs.readFile('yibu.txt', 'utf-8', function (err, data) {
     if (err) {
         console.log(err);
     } else {
-        console.log(data);
+        // console.log(data);
     }
 });
 
@@ -50,7 +50,7 @@ fs.readFile('shuai.jpg', function (err, data) {
         // 写二进制文件
         fs.writeFileSync('star.png', data);
 
-        console.log(data);
+        // console.log(data);
         console.log(data.length + ' bytes');
 
         // Buffer -> String
@@ -64,7 +64,7 @@ fs.readFile('shuai.jpg', function (err, data) {
 
 //同步读取文件：不接受回调函数
 var data = fs.readFileSync('yibu.txt', 'utf-8');
-console.log(data);
+// console.log(data);
 // 如果同步读取文件发生错误，则需要用try...catch捕获该错误：
 // try {
 //     var data = fs.readFileSync('sample.txt', 'utf-8');
