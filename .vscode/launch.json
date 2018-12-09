@@ -10,6 +10,18 @@
             "request": "launch",
             "name": "Launch app",
             "program": "${workspaceRoot}/app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch app-router",
+            "program": "${workspaceRoot}/app-router.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch app-controller",
+            "program": "${workspaceRoot}/app-controller.js"
         }
     ]
 }
