@@ -1,31 +1,40 @@
-// 导入koa，和koa 1.x不同，在koa2中，我们导入的是一个class，因此用大写的Koa表示:
 const Koa = require('koa');
-
-// 创建一个Koa对象表示web app本身:
+const bodyParser = require('koa-bodyparser');
+const router = require('koa-router')();
+const fs = require('fs')
 const app = new Koa();
+app.use(bodyParser());
 
-// 对于任何请求，app将调用该异步函数处理请求：
-// 最后注意ctx对象有一些简写的方法，例如ctx.url相当于ctx.request.url，ctx.type相当于ctx.response.type
-app.use(async (ctx, next) => {
-    console.log(`${ctx.request.method} ${ctx.request.url}`); // 打印URL
-    await next(); // 调用下一个middleware
+const nunjucks = require('nunjucks');
+
+nunjucks.configure('views', { autoescape: true });
+function fun_resHtml(template, model) {
+    return nunjucks.render(template, model)
+}
+
+router.get('/hello/:name', async (ctx, next) => {
+    var name = ctx.params.name;
+    console.log(JSON.stringify(ctx, null, '   '))
+    ctx.response.body = fun_resHtml('hello.html', { _name: name })
+});
+router.get('/', async (ctx, next) => {
+    var name = ctx.params.name;
+    console.log(JSON.stringify(ctx, null, '   '))
+    ctx.response.body = fun_resHtml('index.html', {})
+});
+router.post('/signin', async (ctx, next) => {
+    var name = ctx.request.body.name || '',
+        password = ctx.request.body.password || '';
+    var resHtml
+    if (name === 'koa' && password === '123456') {
+        resHtml = fun_resHtml('hello.html', { _name: name })
+    } else {
+        resHtml = fun_resHtml('error.html', {})
+    }
+    ctx.response.body = resHtml
 });
 
-app.use(async (ctx, next) => {
-    const start = new Date().getTime(); // 当前时间
-    await next(); // 调用下一个middleware
-    console.log(1)
-    const ms = new Date().getTime() - start; // 耗费时间
-    console.log(`Time: ${ms}ms`); // 打印耗费时间
-});
-
-app.use(async (ctx, next) => {
-    await next();
-    console.log(2)
-    ctx.response.type = 'text/html';
-    ctx.response.body = '<h1>Hello, koa2!</h1>';
-});
-
+app.use(router.routes());
 // 在端口3000监听:
 app.listen(3000);
 console.log('app started at port 3000...');

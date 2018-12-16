@@ -4,24 +4,11 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
             "type": "node",
             "request": "launch",
             "name": "Launch app",
             "program": "${workspaceRoot}/app.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch app-router",
-            "program": "${workspaceRoot}/app-router.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch app-controller",
-            "program": "${workspaceRoot}/app-controller.js"
         }
     ]
 }
